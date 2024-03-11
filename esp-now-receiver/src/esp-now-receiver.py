@@ -28,7 +28,7 @@ def listen_to_serial_port(ser: serial.Serial):
             ser.write(1)
             _, id, payload, battery = line.split(':')
             print(f"{timestamp} - Publishing '{payload}' to espnow/{id}", flush=True)
-            requests.post(f"http://localhost/espnow/{id}", data=json.dumps({
+            requests.post(f"http://localhost/espnow-{id}", data=json.dumps({
                 "timestamp": timestamp,
                 "payload": payload,
                 "batterylevel": int(battery)
