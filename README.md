@@ -1,18 +1,23 @@
-### ESP-NOW Receiver installation on Raspberry Pi 4
+## ESP-NOW Receiver installation on Raspberry Pi 4
+
+With the ESP32 connected to UART3, the python script can pass ESP-NOW messages to NTFY  
+
+### Hardware installation
+
+Connect ESP32 RX to GPIO4 (UART3 TX), and TX to GPIO5 (UART3 RX)  
+[See PIN map](pin-map.png)
+
+### Raspberry PI config
+
+**Add the following line to the end of config.txt**
+
+> dtoverlay=uart3
 
 ### Dependencies
 
 > sudo apt install git docker docker-compose
 
-### Hardware installation
-
-With the ESP32 connected to UART3, the python script can pass ESP-NOW messages to NTFY  
-
-**Connect ESP32 RX to GPIO4 (UART3 TX), and TX to GPIO5 (UART3 RX)**  
-
-**Add the following line to the end of config.txt**
-
-> dtoverlay=uart3
+### ESP-NOW Receiver install
 
 run build.sh to create an esp-now-receiver docker image  
 
